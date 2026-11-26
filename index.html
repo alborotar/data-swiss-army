@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Swiss-Army — CSV ⇄ JSON ⇄ SQL ⇄ Markdown Converter (Free, Private, In-Browser)</title>
+  <meta name="description" content="Free online converter: CSV to JSON, JSON to CSV, JSON to SQL INSERT, CSV to Markdown table, SQL INSERT to JSON and more. 100% client-side — your data never leaves your browser.">
+  <meta name="keywords" content="csv to json, json to csv, json to sql, csv to sql insert, markdown table generator, csv to markdown, sql insert to json, data converter">
+  <meta property="og:title" content="Data Swiss-Army — CSV / JSON / SQL / Markdown converter">
+  <meta property="og:description" content="Convert CSV, JSON, SQL INSERTs and Markdown tables instantly. Private: runs entirely in your browser.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='42' font-size='28' text-anchor='middle' fill='white' font-family='monospace'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Data Swiss-Army Converter","applicationCategory":"DeveloperApplication","operatingSystem":"Any (browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Client-side CSV, JSON, SQL INSERT and Markdown table converter."}
+  </script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="logo">{ }</span> Data Swiss-Army</div>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a id="pro-link" class="pro" href="#pro">Get Pro ($9)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>CSV ⇄ JSON ⇄ SQL ⇄ Markdown, instantly</h1>
+      <p>Paste data, pick a target, copy or download. Runs 100% in your browser — nothing is uploaded.</p>
+    </section>
+
+    <section class="tool" aria-label="Converter">
+      <div class="controls">
+        <label>From
+          <select id="from">
+            <option value="auto">Auto-detect</option>
+            <option value="json">JSON</option>
+            <option value="csv">CSV / TSV</option>
+            <option value="markdown">Markdown table</option>
+            <option value="sql">SQL INSERT</option>
+          </select>
+        </label>
+        <button id="swap" class="ghost" title="Swap input and output" type="button">⇄</button>
+        <label>To
+          <select id="to">
+            <option value="csv">CSV</option>
+            <option value="json" selected>JSON</option>
+            <option value="markdown">Markdown table</option>
+            <option value="sql">SQL INSERT</option>
+          </select>
+        </label>
+        <label class="sql-opt">Table <input id="table" value="my_table" size="10"></label>
+        <label class="sql-opt">Dialect
+          <select id="dialect">
+            <option value="postgres">PostgreSQL / SQLite</option>
+            <option value="mysql">MySQL</option>
+            <option value="mssql">SQL Server</option>
+          </select>
+        </label>
+        <label class="sql-opt check"><input type="checkbox" id="batch" checked> Multi-row</label>
+        <label class="csv-opt">Delimiter
+          <select id="delim">
+            <option value=",">Comma</option>
+            <option value="&#9;">Tab</option>
+            <option value=";">Semicolon</option>
+            <option value="|">Pipe</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="panes">
+        <div class="pane">
+          <div class="pane-head">
+            <span>Input <small id="detected"></small></span>
+            <span class="actions">
+              <button id="sample" class="ghost" type="button">Sample</button>
+              <label class="ghost file">Open file<input type="file" id="file" accept=".csv,.tsv,.json,.md,.sql,.txt" hidden></label>
+              <button id="clear" class="ghost" type="button">Clear</button>
+            </span>
+          </div>
+          <textarea id="input" spellcheck="false" placeholder="Paste CSV, JSON, a Markdown table or SQL INSERT statements… or drop a file here"></textarea>
+        </div>
+        <div class="pane">
+          <div class="pane-head">
+            <span>Output <small id="stats"></small></span>
+            <span class="actions">
+              <button id="copy" type="button">Copy</button>
+              <button id="download" type="button">Download</button>
+            </span>
+          </div>
+          <textarea id="output" spellcheck="false" readonly></textarea>
+          <div id="error" class="error" role="alert" hidden></div>
+        </div>
+      </div>
+      <details class="preview-wrap" open>
+        <summary>Table preview <small>(first 50 rows)</small></summary>
+        <div id="preview" class="preview"></div>
+      </details>
+    </section>
+
+    <section id="how" class="info">
+      <h2>What it converts</h2>
+      <div class="grid">
+        <div><h3>CSV → JSON</h3><p>RFC 4180 quoting, embedded commas &amp; newlines, BOM, auto-detected comma/tab/semicolon/pipe, number/boolean/null inference.</p></div>
+        <div><h3>JSON → SQL INSERT</h3><p>Batch or one-per-row INSERTs for PostgreSQL, SQLite, MySQL or SQL Server with safe quoting (<code>O''Brien</code>).</p></div>
+        <div><h3>Anything → Markdown table</h3><p>GitHub-flavored tables with escaped pipes and multi-line cells — perfect for READMEs, PRs and docs.</p></div>
+        <div><h3>SQL / Markdown → JSON / CSV</h3><p>Turn a dump of INSERTs or a table you copied from a doc back into structured data.</p></div>
+      </div>
+    </section>
+
+    <section id="pro" class="info pro-box">
+      <h2>Data Swiss-Army Pro — $9 one-time</h2>
+      <ul>
+        <li>Full source code (MIT-style commercial license) — embed the converters in your own tools</li>
+        <li>Installable offline PWA + zero-dependency <code>converters.js</code> library for Node &amp; browser</li>
+        <li>Tested: <code>npm test</code> suite covering all 4 formats and edge cases</li>
+        <li>Lifetime updates</li>
+      </ul>
+      <a class="cta" id="pro-cta" href="#pro">Get Pro on Gumroad</a>
+      <p class="muted">The web tool stays free forever. Pro just supports development and gives you the source + offline build.</p>
+    </section>
+
+    <section id="faq" class="info">
+      <h2>FAQ</h2>
+      <h3>Is my data uploaded anywhere?</h3>
+      <p>No. Every conversion runs in JavaScript inside your browser tab. You can disconnect from the internet and it keeps working.</p>
+      <h3>How large a file can it handle?</h3>
+      <p>Tens of MB comfortably on a modern laptop; the limit is your browser's memory.</p>
+      <h3>Does it handle nested JSON?</h3>
+      <p>Nested objects/arrays are serialized as JSON strings inside CSV, Markdown and SQL cells so nothing is lost.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Data Swiss-Army · <a href="https://github.com/alborotar/data-swiss-army">Source on GitHub</a> · Free tool, no tracking.</p>
+  </footer>
+
+  <script src="converters.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

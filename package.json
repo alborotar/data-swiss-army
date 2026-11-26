@@ -1,0 +1,11 @@
+{
+  "name": "data-swiss-army",
+  "version": "1.0.0",
+  "description": "100% client-side CSV / JSON / SQL INSERT / Markdown table converter. Zero dependencies.",
+  "main": "converters.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "license": "MIT",
+  "keywords": ["csv", "json", "sql", "markdown", "converter", "csv-to-json", "json-to-sql", "markdown-table"]
+}
