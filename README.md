@@ -4,6 +4,9 @@
 
 ▶ **Live tool:** https://quietstack-labs.github.io/data-swiss-army/
 
+💼 **Support the project / get the Pro pack:** [Data Swiss-Army Converter Pro ($9)](https://playmaster72.gumroad.com/l/fkpqe) — offline bundle, extra presets and commercial-use license.
+
+
 - 100% client-side: your data never leaves the tab (works offline as an installable PWA)
 - Zero dependencies: one `converters.js` (~8 KB) usable in the browser *and* Node
 - RFC 4180 CSV (quoted commas, newlines, `""` escapes, BOM, comma/tab/semicolon/pipe auto-detect)
