@@ -4,7 +4,7 @@
 
 ▶ **Live tool:** https://quietstack-labs.github.io/data-swiss-army/
 
-💼 **Support the project / get the Pro pack:** [Data Swiss-Army Converter Pro ($9)](https://playmaster72.gumroad.com/l/fkpqe) — offline bundle, extra presets and commercial-use license.
+💼 **Packaged on Gumroad:** [Data Swiss-Army Converter Pro ($9)](https://playmaster72.gumroad.com/l/fkpqe) — offline-ready PWA + full source — one-click packaged download that supports continued development.
 
 
 - 100% client-side: your data never leaves the tab (works offline as an installable PWA)
