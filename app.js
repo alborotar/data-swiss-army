@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   // Set this to the Gumroad product URL once the listing is live.
-  const STORE_URL = '';
+  const STORE_URL = 'https://playmaster72.gumroad.com/l/fkpqe';
 
   const $ = (id) => document.getElementById(id);
   const els = {

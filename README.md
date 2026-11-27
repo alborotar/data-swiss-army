@@ -2,7 +2,7 @@
 
 **CSV ⇄ JSON ⇄ SQL INSERT ⇄ Markdown table — instantly, privately, in your browser.**
 
-▶ **Live tool:** https://alborotar.github.io/data-swiss-army/
+▶ **Live tool:** https://quietstack-labs.github.io/data-swiss-army/
 
 - 100% client-side: your data never leaves the tab (works offline as an installable PWA)
 - Zero dependencies: one `converters.js` (~8 KB) usable in the browser *and* Node
