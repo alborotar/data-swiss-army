@@ -48,3 +48,7 @@ The web tool is free forever. If it saves you time, the **$9 Pro pack** (package
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+## Technical Walkthrough
+
+- [Parse RFC 4180 CSV, Markdown Tables, and Dialect-Safe SQL INSERTs in Pure Browser JS (Dev.to)](https://dev.to/quietstacklab/parse-rfc-4180-csv-markdown-tables-and-dialect-safe-sql-inserts-in-pure-browser-js-zero-o22)
